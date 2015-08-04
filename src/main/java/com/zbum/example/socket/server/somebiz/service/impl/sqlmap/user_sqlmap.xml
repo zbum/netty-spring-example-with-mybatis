@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbum.example.socket.server.somebiz.service.impl.UserMapper">
+
+    <resultMap id="user" type="com.zbum.example.socket.server.somebiz.service.User">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="useYn" column="use_yn"/>
+    </resultMap>
+
+    <sql id="user-column-list">
+        u.id, u.username, u.phone_number, u.use_yn
+    </sql>
+
+    <select id="findByUsername" resultMap="user" parameterType="String">
+        SELECT
+        <include refid="user-column-list" />
+        FROM user u
+        WHERE u.username = #{username}
+    </select>
+
+    <select id="findAll" resultMap="user">
+        SELECT
+        <include refid="user-column-list" />
+        FROM user u
+        WHERE u.use_yn=true
+    </select>
+
+</mapper>
