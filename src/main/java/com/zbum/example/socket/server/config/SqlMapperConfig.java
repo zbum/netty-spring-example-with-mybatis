@@ -27,17 +27,19 @@ import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 /**
- * Channel Initializer
+ * SqlMapper Configuration
  *
  * @author Jibeom Jung
  */
 @Configuration
 @MapperScan("com.zbum.example.socket.server")
 @PropertySource(value= "classpath:/properties/sqlmap.properties")
+@EnableTransactionManagement
 public class SqlMapperConfig {
 
     @Value("${mapper.location}")
