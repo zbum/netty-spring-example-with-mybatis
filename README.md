@@ -1,4 +1,4 @@
-# TCP-Communication-Service
+# Netty-spring example with Mybatis
 TCP communication server with Netty, spring-boot, mybatis
 
 This TCP Communication Service is a simple example for developer who want to make tcp service with Spring-Boot, mybatis and Netty.
